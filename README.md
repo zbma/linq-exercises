@@ -13,3 +13,5 @@ Open project in Visual Studio 2013 Community Edition (or better) and run tests.
 Your task is to make all tests pass.
 
 Each exercise group has its own description (class level summary comment), make sure to read it.
+
+If you have trouble refer to [101 LINQ samples](https://code.msdn.microsoft.com/101-LINQ-Samples-3fb9811b) generously provided by MSDN.
