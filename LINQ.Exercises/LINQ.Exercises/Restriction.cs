@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -138,6 +139,83 @@ namespace LINQ.Exercises
             IEnumerable<string> result = strings;
 
             Assert.IsTrue(new[] { "lion" }.SequenceEqual(result));
+        }
+
+        #endregion
+
+        #region Advanced - list of persons
+
+        private class Person
+        {
+            public string FirstName { get; set; }
+
+            public string LastName { get; set; }
+
+            public DateTime Born { get; set; }
+
+            public Person(string firstname, string lastname, DateTime born)
+            {
+                this.FirstName = firstname;
+                this.LastName = lastname;
+                this.Born = born;
+            }
+        }
+
+        // this is test data, do not change it
+        private IList<Person> people = new List<Person>
+        {
+            new Person("Jack", "Tuck", new DateTime(1990, 3, 12)),
+            new Person("Jean", "Gean", new DateTime(1950, 12, 1)),
+            new Person("Jill", "Lill", new DateTime(2001, 5, 21)),
+            new Person("Jimmy", "Jilly", new DateTime(1974, 9, 16)),
+        };
+
+        [TestMethod]
+        public void Where_person_firstname_and_lastname_starts_with_same_letter()
+        {
+            IEnumerable<Person> result = people;
+
+            Assert.IsTrue(new[] { people[3] }.SequenceEqual(result));
+        }
+
+        [TestMethod]
+        public void Where_person_was_born_before_1990()
+        {
+            IEnumerable<Person> result = people;
+
+            Assert.IsTrue(new[] { people[1], people[3] }.SequenceEqual(result));
+        }
+
+        [TestMethod]
+        public void Where_person_was_born_on_day_with_even_number()
+        {
+            IEnumerable<Person> result = people;
+
+            Assert.IsTrue(new[] { people[0], people[3] }.SequenceEqual(result));
+        }
+
+        [TestMethod]
+        public void Where_person_was_born_on_monday_21st()
+        {
+            IEnumerable<Person> result = people;
+
+            Assert.IsTrue(new[] { people[2] }.SequenceEqual(result));
+        }
+
+        [TestMethod]
+        public void Where_person_had_18_years_or_more_in_2000()
+        {
+            IEnumerable<Person> result = people;
+
+            Assert.IsTrue(new[] { people[1], people[3] }.SequenceEqual(result));
+        }
+
+        [TestMethod]
+        public void Where_person_lastname_contains_ll_and_sum_of_year_month_day_is_greater_than_2000()
+        {
+            IEnumerable<Person> result = people;
+
+            Assert.IsTrue(new[] { people[2] }.SequenceEqual(result));
         }
 
         #endregion
