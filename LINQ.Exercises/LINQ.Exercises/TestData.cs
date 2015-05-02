@@ -5,11 +5,11 @@ namespace LINQ.Exercises
 {
     /// <summary>
     /// Data used for tests.
-    /// Don't change it
+    /// Don't change it, order and content of each test data set is important.
     /// </summary>
     internal static class TestData
     {
-        internal static IEnumerable<int> Integers
+        internal static IEnumerable<int> Numbers
         {
             get
             {
@@ -17,7 +17,7 @@ namespace LINQ.Exercises
             }
         }
 
-        internal static ICollection<string> Strings
+        internal static ICollection<string> Animals
         {
             get
             {
@@ -41,17 +41,33 @@ namespace LINQ.Exercises
 
         internal class Person
         {
-            public string FirstName { get; set; }
+            public string FirstName { get; private set; }
 
-            public string LastName { get; set; }
+            public string LastName { get; private set; }
 
-            public DateTime Born { get; set; }
+            public DateTime Born { get; private set; }
 
             public Person(string firstname, string lastname, DateTime born)
             {
-                this.FirstName = firstname;
-                this.LastName = lastname;
+                this.FirstName = firstname ?? string.Empty;
+                this.LastName = lastname ?? string.Empty;
                 this.Born = born;
+            }
+
+            public override string ToString()
+            {
+                return string.Format("{{ {0} {1}; {2:yyyy-MM-dd} }}", FirstName, LastName, Born);
+            }
+
+            public override bool Equals(Object obj)
+            {
+                Person person = obj as Person;
+                if (person == null)
+                {
+                    return false;
+                }
+                
+                return FirstName.Equals(person.FirstName) && LastName.Equals(person.LastName) && Born.Equals(person.Born);
             }
         }
     }

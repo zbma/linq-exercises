@@ -12,13 +12,11 @@ namespace LINQ.Exercises
     [TestClass]
     public class Restriction
     {
-        #region Basic - array of integers
-
         [TestMethod]
         public void Where_n_is_greater_than_1_return_3_ints()
         {
             // First test is solved to show you how to use these exercises.
-            IEnumerable<int> result = TestData.Integers.Where(n => n > 1);
+            IEnumerable<int> result = TestData.Numbers.Where(n => n > 1);
 
             Assert.AreEqual(3, result.Count());
         }
@@ -26,7 +24,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_n_is_less_than_or_equal_to_0_returns_expected_ints()
         {
-            IEnumerable<int> result = TestData.Integers;
+            IEnumerable<int> result = TestData.Numbers;
 
             Assert.AreEqual(5, result.Count());
             Assert.IsTrue(new[] { -3, -1, -4, -1, -5 }.SequenceEqual(result));
@@ -35,7 +33,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_n_multiplied_by_2_is_greater_than_5()
         {
-            IEnumerable<int> result = TestData.Integers;
+            IEnumerable<int> result = TestData.Numbers;
 
             Assert.IsTrue(new[] { 3, 5 }.SequenceEqual(result));
         }
@@ -43,7 +41,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_n_is_even()
         {
-            IEnumerable<int> result = TestData.Integers;
+            IEnumerable<int> result = TestData.Numbers;
 
             Assert.IsTrue(new[] { 2, -4 }.SequenceEqual(result));
         }
@@ -51,7 +49,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_index_of_n_is_odd()
         {
-            IEnumerable<int> result = TestData.Integers;
+            IEnumerable<int> result = TestData.Numbers;
 
             Assert.IsTrue(new[] { 1, 1, 2, 3, 5 }.SequenceEqual(result));
         }
@@ -59,7 +57,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_n_is_even_and_n_is_less_than_0()
         {
-            IEnumerable<int> result = TestData.Integers;
+            IEnumerable<int> result = TestData.Numbers;
 
             Assert.IsTrue(new[] { -4 }.SequenceEqual(result));
         }
@@ -68,20 +66,15 @@ namespace LINQ.Exercises
         public void Where_n_quare_minus_2_times_n_is_greater_than_n()
         {
             // n * n - 2 * n
-            IEnumerable<int> result = TestData.Integers;
+            IEnumerable<int> result = TestData.Numbers;
 
             Assert.IsTrue(new[] { -3, -1, -4, -1, 5, -5 }.SequenceEqual(result));
         }
 
-        #endregion
-
-        #region Intermediate - collection of strings
-
-
         [TestMethod]
         public void Where_string_length_is_shorter_than_5_letters_returns_1_string()
         {
-            IEnumerable<string> result = TestData.Strings;
+            IEnumerable<string> result = TestData.Animals;
 
             Assert.AreEqual(1, result.Count());
         }
@@ -89,7 +82,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_string_length_is_9_returns_expected_strings()
         {
-            IEnumerable<string> result = TestData.Strings;
+            IEnumerable<string> result = TestData.Animals;
 
             Assert.AreEqual(1, result.Count());
             Assert.IsTrue(new[] { "swordfish" }.SequenceEqual(result));
@@ -98,7 +91,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_string_starts_with_s()
         {
-            IEnumerable<string> result = TestData.Strings;
+            IEnumerable<string> result = TestData.Animals;
 
             Assert.IsTrue(new[] { "swordfish", "shark" }.SequenceEqual(result));
         }
@@ -106,7 +99,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_string_has_i_as_a_second_letter()
         {
-            IEnumerable<string> result = TestData.Strings;
+            IEnumerable<string> result = TestData.Animals;
 
             Assert.IsTrue(new[] { "tiger", "lion" }.SequenceEqual(result));
         }
@@ -114,7 +107,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_string_contains_e()
         {
-            IEnumerable<string> result = TestData.Strings;
+            IEnumerable<string> result = TestData.Animals;
 
             Assert.IsTrue(new[] { "tiger", "penguin", "elephant" }.SequenceEqual(result));
         }
@@ -122,7 +115,7 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_string_ends_with_uppercase_t()
         {
-            IEnumerable<string> result = TestData.Strings;
+            IEnumerable<string> result = TestData.Animals;
 
             Assert.IsTrue(new[] { "elephant" }.SequenceEqual(result));
         }
@@ -130,14 +123,10 @@ namespace LINQ.Exercises
         [TestMethod]
         public void Where_substring_equals_to_io()
         {
-            IEnumerable<string> result = TestData.Strings;
+            IEnumerable<string> result = TestData.Animals;
 
             Assert.IsTrue(new[] { "lion" }.SequenceEqual(result));
         }
-
-        #endregion
-
-        #region Advanced - list of persons
 
         [TestMethod]
         public void Where_person_firstname_and_lastname_starts_with_same_letter()
@@ -186,7 +175,5 @@ namespace LINQ.Exercises
 
             Assert.IsTrue(new[] { TestData.People[2] }.SequenceEqual(result));
         }
-
-        #endregion
     }
 }
