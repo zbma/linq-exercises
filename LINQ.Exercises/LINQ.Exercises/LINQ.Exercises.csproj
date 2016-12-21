@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Aggregate.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="Restriction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
