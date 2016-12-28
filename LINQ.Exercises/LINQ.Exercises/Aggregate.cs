@@ -154,9 +154,9 @@ namespace LINQ.Exercises
             // if this day is bigger than 15, then substract 10 from it
             // else add 5 to it
             // and add resulting number to your aggregate
-            int result = TestData.Numbers.Aggregate(0, (sum, nextValue) => 1);
+            int result = TestData.People.Aggregate(0, (sum, nextValue) => 1);
 
-            Assert.AreEqual(48, result);
+            Assert.AreEqual(296, result);
         }
     }
 }
