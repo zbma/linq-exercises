@@ -30,7 +30,7 @@ namespace LINQ.Exercises
         }
 
         [TestMethod]
-        public void Count_all_animals_having_character_count_equal_to_6()
+        public void Count_all_animals_having_character_count_equal_to_5()
         {
             // hint: use nested count
             int result = TestData.Animals.Count();
