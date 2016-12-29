@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Aggregate.cs" />
     <Compile Include="Element.cs" />
+    <Compile Include="Partioning.cs" />
     <Compile Include="Restriction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestData.cs" />

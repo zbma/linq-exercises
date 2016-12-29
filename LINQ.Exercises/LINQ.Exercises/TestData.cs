@@ -9,6 +9,12 @@ namespace LINQ.Exercises
     /// </summary>
     internal static class TestData
     {
+
+        /// <summary>
+        /// The following Data was using for the: Element, Aggregate and Restriction exercises.
+        /// Don't change it, order and content of each test data set is important.
+        /// </summary>
+        /// 
         internal static IEnumerable<int> Numbers
         {
             get
@@ -70,5 +76,22 @@ namespace LINQ.Exercises
                 return FirstName.Equals(person.FirstName) && LastName.Equals(person.LastName) && Born.Equals(person.Born);
             }
         }
+
+        /// <summary>
+        /// The following Data was using for the partioning Tests        
+        /// </summary>
+        /// 
+
+        internal static IEnumerable<int> PartioningNumbers
+        {
+            get
+            {
+                return new int[] { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 }; 
+            }
+        }
+
+      
+
+
     }
 }
