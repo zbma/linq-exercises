@@ -33,11 +33,7 @@ namespace LINQ.Exercises
 
          [TestMethod]
          public void GetFirstTwoNumbers_returns_2_ints()
-         {
-
-             // This is a copy of the test data
-             // int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 }; 
-
+         {           
              // please complete the below so the test passes:
              IEnumerable<int> result = TestData.PartioningNumbers;
 
@@ -53,10 +49,6 @@ namespace LINQ.Exercises
          [TestMethod]
          public void IgnoreFirstFourNumbers_returns_4_ints()
          {
-
-             // This is a copy of the test data
-             // int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 }; 
-
              // please complete the below so the test passes:
              IEnumerable<int> result = TestData.PartioningNumbers;
 
@@ -74,10 +66,7 @@ namespace LINQ.Exercises
          {
              // This is tricky. Please read the below very carefully:
              // This sample uses TakeWhile to return elements starting from the beginning of the array until a number is hit that is not less than 6.
-             
-             // This is a copy of the test data
-             // int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 }; 
-
+            
              // please complete the below so the test passes:
               IEnumerable<int> result = TestData.PartioningNumbers;
 
@@ -95,9 +84,6 @@ namespace LINQ.Exercises
              // This sample uses TakeWhile to return elements starting from the beginning of the 
              // array until a number is hit that is less than its position in the array.
 
-             // This is a copy of the test data
-             // int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 }; 
-
              // please complete the below so the test passes:
              IEnumerable<int> result = TestData.PartioningNumbers;
 
@@ -112,13 +98,9 @@ namespace LINQ.Exercises
 
          [TestMethod]
          public void GetElementsOfArrayStartingFromTheFirstElementDivisibleByThree_Return7ints()
-         {
-             // This is tricky. Please read the below very carefully:
-             // This sample uses SkipWhile to get the elements of the array starting from the first element divisible by 3.
-
-             // This is a copy of the test data
-             // int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 }; 
-
+         {             
+             // Use SkipWhile to get the elements of the array starting from the first element divisible by 3.
+             
              // please complete the below so the test passes:
              IEnumerable<int> result = TestData.PartioningNumbers;
 
@@ -132,10 +114,7 @@ namespace LINQ.Exercises
         [TestMethod]
          public void GetElementsStartingFromFirstElementLessThanItsPosition_Return8ints()
          {
-             // This sample uses SkipWhile to get the elements of the array starting from the first element less than its position.
-
-             // This is a copy of the test data
-             // int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 }; 
+             // Use SkipWhile to get the elements of the array starting from the first element less than its position.
 
              // please complete the below so the test passes:
              IEnumerable<int> result = TestData.PartioningNumbers;
@@ -147,7 +126,7 @@ namespace LINQ.Exercises
              Assert.IsTrue(result.SequenceEqual(new[] { 1, 3, 9, 8, 6, 7, 2, 0 }));
          }
 
-         //// Nested examples TBCoded
+         //// Nested examples TBC
 
 
     }
