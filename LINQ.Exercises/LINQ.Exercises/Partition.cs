@@ -17,7 +17,7 @@ namespace LINQ.Exercises
     /// </summary>
 
      [TestClass]
-    public class Partioning
+    public class Partition
     {
          [TestMethod]
          public void GetFirstThreeNumbers_returns_3_ints()
