@@ -57,6 +57,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestData.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Answers\PartitionAnswers.txt" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
