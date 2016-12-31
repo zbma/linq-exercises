@@ -51,7 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Aggregate.cs" />
-    <Content Include="Answers\AggregateAnswers.txt" />
+    <Content Include="Answers\Aggregate.txt" />
     <Compile Include="Element.cs" />
     <Compile Include="Partition.cs" />
     <Compile Include="Restriction.cs" />
@@ -59,7 +59,7 @@
     <Compile Include="TestData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Answers\PartitionAnswers.txt" />
+    <Content Include="Answers\Partition.txt" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
