@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Aggregate.cs" />
+    <Content Include="Answers\AggregateAnswers.txt" />
     <Compile Include="Element.cs" />
     <Compile Include="Partition.cs" />
     <Compile Include="Restriction.cs" />
