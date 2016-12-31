@@ -8,7 +8,13 @@ namespace LINQ.Exercises
     /// Don't change it, order and content of each test data set is important.
     /// </summary>
     internal static class TestData
-    {
+    {        
+
+        /// <summary>
+        /// The following Data was using for the: Element, Aggregate and Restriction exercises.
+        /// Don't change it, order and content of each test data set is important.
+        /// </summary>
+        /// 
         internal static IEnumerable<int> Numbers
         {
             get
@@ -59,6 +65,19 @@ namespace LINQ.Exercises
                 return string.Format("{{ {0} {1}; {2:yyyy-MM-dd} }}", FirstName, LastName, Born);
             }
 
+            public override int GetHashCode()
+            {
+                unchecked // Overflow is fine, just wrap
+                {
+                    int hash = 17;
+                    // Suitable nullity checks etc, of course :)                    
+                    hash = hash * 23 + FirstName.GetHashCode();
+                    hash = hash * 23 + LastName.GetHashCode();
+                    hash = hash * 23 + Born.GetHashCode();
+                    return hash;
+                }
+            }
+
             public override bool Equals(Object obj)
             {
                 Person person = obj as Person;
@@ -70,5 +89,22 @@ namespace LINQ.Exercises
                 return FirstName.Equals(person.FirstName) && LastName.Equals(person.LastName) && Born.Equals(person.Born);
             }
         }
+
+        /// <summary>
+        /// The following Data was using for the partioning Tests        
+        /// </summary>
+        /// 
+
+        internal static IEnumerable<int> PartioningNumbers
+        {
+            get
+            {
+                return new int[] { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 }; 
+            }
+        }
+
+      
+
+
     }
 }
