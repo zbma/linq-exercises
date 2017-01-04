@@ -1,20 +1,14 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace LINQ.Exercises
 {
     /// <summary>
     /// Data used for tests.
-    /// Don't change it, order and content of each test data set is important.
+    /// Don't change it in any way, order and content of each test data set is important.
     /// </summary>
     internal static class TestData
-    {        
-
-        /// <summary>
-        /// The following Data was using for the: Element, Aggregate and Restriction exercises.
-        /// Don't change it, order and content of each test data set is important.
-        /// </summary>
-        /// 
+    {
         internal static IEnumerable<int> Numbers
         {
             get
@@ -67,10 +61,11 @@ namespace LINQ.Exercises
 
             public override int GetHashCode()
             {
-                unchecked // Overflow is fine, just wrap
+                // overflow is fine
+                unchecked
                 {
                     int hash = 17;
-                    // Suitable nullity checks etc, of course :)                    
+                    // test data should never be null
                     hash = hash * 23 + FirstName.GetHashCode();
                     hash = hash * 23 + LastName.GetHashCode();
                     hash = hash * 23 + Born.GetHashCode();
@@ -85,24 +80,24 @@ namespace LINQ.Exercises
                 {
                     return false;
                 }
-                
+
                 return FirstName.Equals(person.FirstName) && LastName.Equals(person.LastName) && Born.Equals(person.Born);
             }
         }
+
         
         /// <summary>
         /// The following Data was using for the partioning Tests        
         /// </summary>
         /// 
+        internal static IEnumerable<int> PartitionNumbers
 
-        internal static IEnumerable<int> PartioningNumbers
         {
             get
             {
-                return new int[] { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 }; 
+                return new int[] { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
             }
         }
-
 
         /// <summary>
         /// The following Data was using for the Orderby Tests        
@@ -120,6 +115,6 @@ namespace LINQ.Exercises
             get { return new string[] { "cherry", "apple", "blueberry", "tamarind", "zuchini" }; }
         }
     }
-
-
 }
+
+

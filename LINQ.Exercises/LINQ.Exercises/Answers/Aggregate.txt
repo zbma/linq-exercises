@@ -1,0 +1,46 @@
+﻿Try to solve the exercises before looking up the answers.
+
+Count_all_occurences_of_1()
+    int result = TestData.Numbers.Count(n => n == 1);
+
+Count_all_animals_having_character_count_equal_to_5()
+    int result = TestData.Animals.Count(name => name.Count() == 5);
+
+Sum_all_numbers()
+    int result = TestData.Numbers.Sum();
+
+Sum_all_characters_in_animal_names()
+    int result = TestData.Animals.Sum(name => name.Count());
+
+Sum_all_birth_years()
+    int result = TestData.People.Sum(person => person.Born.Year);
+
+Find_minimum_number()
+    int result = TestData.Numbers.Min();
+
+Find_length_of_shortest_animal_name()
+    int result = TestData.Animals.Min(name => name.Count());
+
+Find_earliest_birthday()
+    DateTime result = TestData.People.Min(person => person.Born);
+
+Find_maximum_number()
+    int result = TestData.Numbers.Max();
+
+Find_length_of_longest_animal_name()
+    int result = TestData.Animals.Max(x => x.Length);
+
+Find_latest_birthday()
+    DateTime result = TestData.People.Max(person => person.Born);
+
+Find_average_of_numbers()
+    double result = TestData.Numbers.Average();
+
+Find_average_of_birth_years()
+    double result = TestData.People.Average(person => person.Born.Year);
+
+Aggregate_Product_of_all_numbers()
+    int result = TestData.Numbers.Aggregate((sum, nextNumber) => sum * nextNumber);
+
+Aggregate_Secret_formula()
+    int result = TestData.People.Aggregate(256, (sum, person) => sum + (person.Born.Day > 15 ? (person.Born.Day - 10) : (person.Born.Day +5)));
