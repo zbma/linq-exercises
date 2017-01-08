@@ -39,14 +39,14 @@ namespace LINQ.Exercises
         public void OrderWordsAlphabetically_Return5Words()
         {
             // starting from a to z - order ascending
-            IEnumerable<string> result = TestData.OrderByWords1;
+            IEnumerable<string> result = TestData.OrderByWordsExtended;
             Assert.IsTrue(result.SequenceEqual(new string[] { "apple", "blueberry", "cherry", "tamarind", "zuchini" }));
         }
 
         [TestMethod]
         public void OrderWordsBySecondLetter_Return5Words()
         {
-            IEnumerable<string> result = TestData.OrderByWords1;
+            IEnumerable<string> result = TestData.OrderByWordsExtended;
 
             Assert.IsTrue(result.SequenceEqual(new string[] {"tamarind", "cherry", "blueberry", "apple", "zuchini" }));
         }
@@ -55,7 +55,7 @@ namespace LINQ.Exercises
         public void OrderWordsByFirstLetterDescendingAlphabetically_Return5Words()
         {
             // remember has to be descending:
-            IEnumerable<string> result = TestData.OrderByWords1;
+            IEnumerable<string> result = TestData.OrderByWordsExtended;
 
             Assert.IsTrue(result.SequenceEqual(new string[] { "zuchini", "tamarind", "cherry", "blueberry", "apple",  }));
         }
@@ -119,7 +119,7 @@ namespace LINQ.Exercises
             // so the enumeration, assuming ascending order by calculated_length
             // should be "by" and then "toy"
 
-            IEnumerable<string> result = TestData.OrderByWords1;
+            IEnumerable<string> result = TestData.OrderByWordsExtended;
             
             Assert.IsTrue(result.SequenceEqual(new string[] { "apple", "zuchini", "blueberry", "cherry", "tamarind" }));
         }              

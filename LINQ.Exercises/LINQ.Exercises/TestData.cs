@@ -115,7 +115,7 @@ namespace LINQ.Exercises
         }
 
 
-        internal static IEnumerable<string> OrderByWords1
+        internal static IEnumerable<string> OrderByWordsExtended
         {
             get { return new string[] { "cherry", "apple", "blueberry", "tamarind", "zuchini" }; }
         }
