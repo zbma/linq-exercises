@@ -59,6 +59,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SetOperations.cs" />
     <Compile Include="TestData.cs" />
+    <Content Include="Answers\PartitionAnswers.txt" />
+    <Content Include="Answers\SetAnsers.txt" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

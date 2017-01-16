@@ -29,22 +29,9 @@ namespace LINQ.Exercises
             // I want to see an enumerable which contains only the unique numbers in the
             // above array
 
-            IEnumerable<int> result = randomNumbers;
+            IEnumerable<int> result = randomNumbers; // please edit/complete so that the test passes
 
             Assert.IsTrue(result.SequenceEqual(new int[] { 2, 3, 5, 4, 6, 8, 7, 9, 34, 67 }));  
-        }
-
-        [TestMethod]
-        public void GetDistinctNamesInAlphabeticalOrder_ReturnStringIEnumerable()
-        {
-            string[] names = { "Wu", "Rodríguez", "Singh", "Ahmed", "Jones", "Tran", "Smith", "Chan", "Smith", "Singh", "Jones", "Chan", "Tran"
-                                 , "Mohammad", "Ahmed", "Rodríguez", "Mohammad", "Wu"  };
-
-            // The boss wants only distinct names in order from A to Z
-            IEnumerable<string> result = names;
-
-            Assert.IsTrue(names.SequenceEqual(new string[] { "Ahmed", "Chan", "Jones", "Mohammad", "Rodríguez", "Singh", "Smith", "Tran", "Wu" }));
-
         }
 
 
@@ -58,7 +45,7 @@ namespace LINQ.Exercises
             // from both arrays combined
             // in ascending order from 1...9
 
-            IEnumerable<int> result = numbersA;
+            IEnumerable<int> result = numbersA; // please edit/complete so that the test passes
             
             Assert.IsTrue( result.SequenceEqual(new int[]{0,1,2,3,4,5,6,7,8,9}));
         }
@@ -70,28 +57,68 @@ namespace LINQ.Exercises
             int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
             int[] numbersB = { 1, 3, 5, 7, 8 };
 
-            IEnumerable<int> result = numbersA;
+            IEnumerable<int> result = numbersA; // please edit/complete so that the test passes
 
            Assert.IsTrue(result.SequenceEqual(new int[] { 5, 8 }));  
         }
 
+         [TestMethod]
+         public void GetCharactersCommonToEveryonesFirstNamesUsingSetElements_ReturnCharEnumerable()
+         {             
+             // we have a list of people
+             // we have their first names
+             // i need you to find out which letters are common
+             // to all the first names
+
+             // Hint: try to use set operations.
+             // There are many ways to solve this.                         
+
+             List<char> commonCharacters = new List<char>(); // please edit/complete so that the test passes
+
+             Assert.IsTrue(commonCharacters.OrderBy(x => x).SequenceEqual(new char[] { 'a', 'i', 'J' }.OrderBy(x => x)));
+         }
+
         [TestMethod]
-         public void GetLettersCommonToEveryonesFirstNames()
+         public void GetCharactersCommonToEveryonesFirstNamesNotUsingSetOperations_ReturnCharEnumerable()
          {
+            // Bonus Question
             // we have a list of people
             // we have their first names
             // i need you to find out which letters are common
-            // to all the people.
+            // to all the first names names   
+            // But you are not allowed to use set operations.
 
-            //***************** Work out a solution to this example.
-             
-            IEnumerable<string> result = TestData.People.Select(x => x.FirstName); 
             
-            // use the FirstName property associated with each person
-            // Please view the TestDate for more details.
+            // Please edit the below and complete so that the test passes
+             IEnumerable<char> result = new List<char>();
+            
+            
 
-             Assert.IsTrue(result.SequenceEqual(new string[] { "J", "a", "i" }));
+             Assert.IsTrue(result.OrderBy(x => x).SequenceEqual(new char[] {'a' ,'i' , 'J' }.OrderBy(x => x)));
          }
+
+        [TestMethod]
+        public void GetNumbersInFirstArrayThatAreNotAlsoInSecondArray_ReturnIenumerableInt()
+        {
+            int[] numbersA = { 0, 2, 4, 5, 6, 8, 9 };
+            int[] numbersB = { 1, 3, 5, 7, 8 };
+
+            IEnumerable<int> result = numbersA; // please complete so that the test passes
+
+            Assert.IsTrue(result.OrderBy(x => x).SequenceEqual(new int[] { 0,2,4,6,9 }.OrderBy(x => x)));
+        }
+
+        [TestMethod]
+        public void GetStringsInFirstArrayThatAreNotAlsoInSecondArray_ReturnIenumerableString()
+        {
+            string[] lettersA = {"a", "b", "c", "d", "e"};
+            string[] lettersB = { "a", "c", "e" };
+
+            IEnumerable<string> result = lettersA; // please complete so that the test passes
+
+            Assert.IsTrue(result.OrderBy(x => x).SequenceEqual(new string[] { "b" , "d" }));
+
+        }
 
 
     }
