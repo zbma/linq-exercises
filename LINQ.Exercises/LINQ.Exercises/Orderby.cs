@@ -36,7 +36,7 @@ namespace LINQ.Exercises
         // starting from a to z - order ascending
         [TestMethod]
         public void OrderWordsAlphabetically_Return5Words()
-        {            
+        {
             IEnumerable<string> result = TestData.OrderByWordsExtended;
             Assert.IsTrue(result.SequenceEqual(new string[] { "apple", "blueberry", "cherry", "tamarind", "zuchini" }));
         }
@@ -52,7 +52,7 @@ namespace LINQ.Exercises
         // remember has to be descending:
         [TestMethod]
         public void OrderWordsByFirstLetterDescendingAlphabetically_Return5Words()
-        {            
+        {
             IEnumerable<string> result = TestData.OrderByWordsExtended;
 
             Assert.IsTrue(result.SequenceEqual(new string[] { "zuchini", "tamarind", "cherry", "blueberry", "apple", }));
@@ -91,7 +91,7 @@ namespace LINQ.Exercises
         public void OrderAlphabeticallyAssumingCaseInsensitivity_ReturnCaseInsensitiveEnumeration()
         {
             string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
-            
+
             var result = words;
 
             Assert.IsTrue(result.SequenceEqual(new string[] {
@@ -115,7 +115,7 @@ namespace LINQ.Exercises
 
         [TestMethod]
         public void OrderAssumingSpecialCondition_ReturnSpecialEnumeration()
-        {           
+        {
             IEnumerable<string> result = TestData.OrderByWordsExtended;
 
             Assert.IsTrue(result.SequenceEqual(new string[] { "apple", "zuchini", "blueberry", "cherry", "tamarind" }));
@@ -172,9 +172,11 @@ namespace LINQ.Exercises
         public void OrderByLengthThenAlphabeticallyIgnoringCase_returnStringEnumeration()
         {
             #region hint
+
             // you will have to create a class which implements the IComparer<string> interface
+
             #endregion hint
-            
+
             string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
             IEnumerable<string> result = words;
@@ -186,7 +188,7 @@ namespace LINQ.Exercises
         // second letter is 'i' that is reversed from the order in the original array.
         [TestMethod]
         public void ComplexQuery_returnStringEnumeration()
-        {           
+        {
             string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
             IEnumerable<string> result = digits;

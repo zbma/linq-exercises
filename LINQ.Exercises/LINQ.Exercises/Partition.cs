@@ -27,7 +27,7 @@ namespace LINQ.Exercises
         // Get the first two numbers in the array
         [TestMethod]
         public void GetFirstTwoNumbers_returns_2_ints()
-        {            
+        {
             IEnumerable<int> result = TestData.PartitionNumbers;
 
             Assert.IsTrue(result.SequenceEqual(new[] { 5, 4 }));
@@ -36,7 +36,7 @@ namespace LINQ.Exercises
         // return everything in the array but the first four numbers
         [TestMethod]
         public void IgnoreFirstFourNumbers_returns_4_ints()
-        {            
+        {
             IEnumerable<int> result = TestData.PartitionNumbers;
 
             Assert.IsTrue(result.SequenceEqual(new[] { 9, 8, 6, 7, 2, 0 }));
@@ -46,7 +46,7 @@ namespace LINQ.Exercises
         // until a number is hit that is not less than 6
         [TestMethod]
         public void Enumerate_Till_You_Get_A_Number_NotLessThanSix_returns_4_ints()
-        {            
+        {
             IEnumerable<int> result = TestData.PartitionNumbers;
 
             Assert.IsTrue(result.SequenceEqual(new[] { 5, 4, 1, 3 }));
@@ -56,7 +56,7 @@ namespace LINQ.Exercises
         // until a number is hit that is less than its position in the array
         [TestMethod]
         public void Enumerate_Till_A_Number_Hit_Which_is_less_than_its_own_array_position_returns_2_ints()
-        {            
+        {
             IEnumerable<int> result = TestData.PartitionNumbers;
 
             Assert.IsTrue(result.SequenceEqual(new[] { 5, 4 }));
@@ -66,7 +66,7 @@ namespace LINQ.Exercises
         // starting from the first element divisible by 3
         [TestMethod]
         public void GetElementsOfArrayStartingFromTheFirstElementDivisibleByThree_Return7ints()
-        {            
+        {
             IEnumerable<int> result = TestData.PartitionNumbers;
 
             Assert.IsTrue(result.SequenceEqual(new[] { 3, 9, 8, 6, 7, 2, 0 }));
@@ -76,7 +76,7 @@ namespace LINQ.Exercises
         // starting from the first element less than its position.
         [TestMethod]
         public void GetElementsStartingFromFirstElementLessThanItsPosition_Return8ints()
-        {            
+        {
             IEnumerable<int> result = TestData.PartitionNumbers;
 
             Assert.IsTrue(result.SequenceEqual(new[] { 1, 3, 9, 8, 6, 7, 2, 0 }));
