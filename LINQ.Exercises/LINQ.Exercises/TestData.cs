@@ -85,13 +85,11 @@ namespace LINQ.Exercises
             }
         }
 
-        
         /// <summary>
-        /// The following Data was using for the partioning Tests        
+        /// The following Data was using for the partioning Tests
         /// </summary>
-        /// 
+        ///
         internal static IEnumerable<int> PartitionNumbers
-
         {
             get
             {
@@ -100,23 +98,18 @@ namespace LINQ.Exercises
         }
 
         /// <summary>
-        /// The following Data was using for the Orderby Tests        
+        /// The following Data was using for the Orderby Tests
         /// </summary>
-        /// 
+        ///
 
-        internal static  IEnumerable<string> OrderByWords
+        internal static IEnumerable<string> OrderByWords
         {
             get { return new string[] { "cherry", "apple", "blueberry" }; }
         }
-
 
         internal static IEnumerable<string> OrderByWordsExtended
         {
             get { return new string[] { "cherry", "apple", "blueberry", "tamarind", "zuchini" }; }
         }
-
-
     }
 }
-
-

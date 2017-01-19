@@ -1,38 +1,36 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LINQ.Exercises
 {
-      /// <summary>
+    /// <summary>
     /// Look here for a primer:
     /// https://code.msdn.microsoft.com/101-LINQ-Samples-3fb9811b
     /// https://msdn.microsoft.com/en-us/library/bb534966(v=vs.110).aspx
-    /// 
+    ///
     /// Make sure to preview test data located in TestData.cs file.
-    /// Don't modify assertions or test data, all you need to do is to apply LINQ method so 
+    /// Don't modify assertions or test data, all you need to do is to apply LINQ method so
     /// `result` variable will have expected value(s).
-    /// 
+    ///
     /// Hint: use OrderBy, OrderByDescending, ThenBy, and ThenByDescending and Reverse
     /// sometimes you'll have to use a class which inherits from IComparer
     /// Create and implement the interface to acheive the desired outcome.
-    /// Hint: use google to find out who to compare two strings alphabetically, ignoring case 
+    /// Hint: use google to find out who to compare two strings alphabetically, ignoring case
     /// </summary>
-    /// 
+    ///
 
     [TestClass]
     public class OrderBy
-    { 
+    {
         [TestMethod]
         public void OrderWordsAlphabetically_ReturnThreeWords()
         {
             // Solved for your benefit
             IEnumerable<string> result = TestData.OrderByWords.OrderBy(word => word);
 
-            Assert.IsTrue(result.SequenceEqual(new string[] {"apple", "blueberry", "cherry" }));
+            Assert.IsTrue(result.SequenceEqual(new string[] { "apple", "blueberry", "cherry" }));
         }
 
         [TestMethod]
@@ -48,7 +46,7 @@ namespace LINQ.Exercises
         {
             IEnumerable<string> result = TestData.OrderByWordsExtended;
 
-            Assert.IsTrue(result.SequenceEqual(new string[] {"tamarind", "cherry", "blueberry", "apple", "zuchini" }));
+            Assert.IsTrue(result.SequenceEqual(new string[] { "tamarind", "cherry", "blueberry", "apple", "zuchini" }));
         }
 
         [TestMethod]
@@ -57,7 +55,7 @@ namespace LINQ.Exercises
             // remember has to be descending:
             IEnumerable<string> result = TestData.OrderByWordsExtended;
 
-            Assert.IsTrue(result.SequenceEqual(new string[] { "zuchini", "tamarind", "cherry", "blueberry", "apple",  }));
+            Assert.IsTrue(result.SequenceEqual(new string[] { "zuchini", "tamarind", "cherry", "blueberry", "apple", }));
         }
 
         [TestMethod]
@@ -67,7 +65,7 @@ namespace LINQ.Exercises
 
             IEnumerable<string> result = TestData.OrderByWords;
 
-            Assert.IsTrue(result.SequenceEqual(new string[] { "apple", "cherry", "blueberry"}));
+            Assert.IsTrue(result.SequenceEqual(new string[] { "apple", "cherry", "blueberry" }));
         }
 
         [TestMethod]
@@ -75,8 +73,8 @@ namespace LINQ.Exercises
         {
             IEnumerable<TestData.Person> result = TestData.People;
 
-            Assert.IsTrue(result.SequenceEqual(new TestData.Person[] 
-            { 
+            Assert.IsTrue(result.SequenceEqual(new TestData.Person[]
+            {
                     new TestData.Person("Jean", "Gean", new DateTime(1950, 12, 1)),
                     new TestData.Person("Jimmy", "Jilly", new DateTime(1974, 9, 16)),
                     new TestData.Person("Jill", "Lill", new DateTime(2001, 5, 21)),
@@ -88,28 +86,29 @@ namespace LINQ.Exercises
         public void OrderAlphabeticallyAssumingCaseInsensitivity_ReturnCaseInsensitiveEnumeration()
         {
             string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
-            
+
             // hint: https://msdn.microsoft.com/en-us/library/bb549422(v=vs.110).aspx
             // you need to create a class that implements the IComparer interface
             // Strictly speaking, the MSDN documentation suggests that you should
-            // not inherit from IComparer, but your class should inherit from 
+            // not inherit from IComparer, but your class should inherit from
             // the Comparer<T> class. But for the purposes of this exercise
             // inheriting from IComparer will do just fine.
 
             var result = words;
 
-            Assert.IsTrue(result.SequenceEqual(new string[] { 
+            Assert.IsTrue(result.SequenceEqual(new string[] {
                 "AbAcUs", "aPPLE", "BlUeBeRrY", "bRaNcH", "cHeRry", "ClOvEr"
             }));
         }
 
         [TestMethod]
-        public void OrderAssumingSpecialCondition_ReturnSpecialEnumeration(){
+        public void OrderAssumingSpecialCondition_ReturnSpecialEnumeration()
+        {
             // The comparison can be more complex.
-            // Let us compare two strings by a function of their lengths.            
+            // Let us compare two strings by a function of their lengths.
             // let us call this function the calculated_length of the string.
             // if the length is an odd number: then the calculated_length of the string
-            // is the actual length of the string. but if the length of the string is an 
+            // is the actual length of the string. but if the length of the string is an
             // even number, then the calculated_length of the string is twice the actual string's length.
 
             // let's order an array of strings: {"toy", "by"}
@@ -120,9 +119,9 @@ namespace LINQ.Exercises
             // should be "by" and then "toy"
 
             IEnumerable<string> result = TestData.OrderByWordsExtended;
-            
+
             Assert.IsTrue(result.SequenceEqual(new string[] { "apple", "zuchini", "blueberry", "cherry", "tamarind" }));
-        }              
+        }
 
         [TestMethod]
         public void OrderDoublesFromLargestToSmallest_returnDescendingEnumeration()
@@ -133,16 +132,16 @@ namespace LINQ.Exercises
 
             Assert.IsTrue(result.SequenceEqual(new double[] { 4.1, 2.9, 2.3, 1.9, 1.7 }));
         }
-        
+
         [TestMethod]
         public void OrderByBirthDatesOldestToYoungest_returnPersonEnumeration()
-        {           
+        {
             IEnumerable<TestData.Person> result = TestData.People;
 
-            Assert.IsTrue(result.SequenceEqual(new TestData.Person[] { 
+            Assert.IsTrue(result.SequenceEqual(new TestData.Person[] {
                     new TestData.Person("Jean", "Gean", new DateTime(1950, 12, 1)),
                     new TestData.Person("Jimmy", "Jilly", new DateTime(1974, 9, 16)),
-                    new TestData.Person("Jack", "Tuck", new DateTime(1990, 3, 12)),                    
+                    new TestData.Person("Jack", "Tuck", new DateTime(1990, 3, 12)),
                     new TestData.Person("Jill", "Lill", new DateTime(2001, 5, 21))
             }));
         }
@@ -152,9 +151,9 @@ namespace LINQ.Exercises
         {
             IEnumerable<TestData.Person> result = TestData.People;
 
-            Assert.IsTrue(result.SequenceEqual(new TestData.Person[] { 
+            Assert.IsTrue(result.SequenceEqual(new TestData.Person[] {
                     new TestData.Person("Jill", "Lill", new DateTime(2001, 5, 21)),
-                    new TestData.Person("Jack", "Tuck", new DateTime(1990, 3, 12)),                    
+                    new TestData.Person("Jack", "Tuck", new DateTime(1990, 3, 12)),
                     new TestData.Person("Jimmy", "Jilly", new DateTime(1974, 9, 16)),
                     new TestData.Person("Jean", "Gean", new DateTime(1950, 12, 1))
             }));
@@ -166,7 +165,7 @@ namespace LINQ.Exercises
             string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
             IEnumerable<string> result = digits;
 
-            Assert.IsTrue(result.SequenceEqual(new string[] {"one", "six", "two", "five", "four", "nine", "zero", "eight", "seven", "three" }));
+            Assert.IsTrue(result.SequenceEqual(new string[] { "one", "six", "two", "five", "four", "nine", "zero", "eight", "seven", "three" }));
         }
 
         [TestMethod]
@@ -175,8 +174,8 @@ namespace LINQ.Exercises
             #region hint
 
             // you will have to create a class which implements the IComparer<string> interface
-            
-            #endregion
+
+            #endregion hint
 
             // order by increasing length
             // then by alphabetically from a to z, ignoring case
@@ -190,17 +189,14 @@ namespace LINQ.Exercises
         [TestMethod]
         public void ComplexQuery_returnStringEnumeration()
         {
-            // use Reverse to create a list of all digits in the array whose 
+            // use Reverse to create a list of all digits in the array whose
             // second letter is 'i' that is reversed from the order in the original array.
 
             string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
             IEnumerable<string> result = digits;
 
-            Assert.IsTrue(result.SequenceEqual( new string[] { "nine", "eight", "six", "five" } ));
+            Assert.IsTrue(result.SequenceEqual(new string[] { "nine", "eight", "six", "five" }));
         }
     }
-
-    
-
 }

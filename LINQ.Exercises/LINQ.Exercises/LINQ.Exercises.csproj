@@ -51,7 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Aggregate.cs" />
-    <Content Include="Answers\Aggregate.txt" />
+    <Content Include="Answers\AggregateAnswers.txt" />
     <Compile Include="Element.cs" />
     <Compile Include="Orderby.cs" />
     <Compile Include="Partition.cs" />
@@ -60,7 +60,7 @@
     <Compile Include="SetOperations.cs" />
     <Compile Include="TestData.cs" />
     <Content Include="Answers\PartitionAnswers.txt" />
-    <Content Include="Answers\SetAnsers.txt" />
+    <Content Include="Answers\SetAnswers.txt" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
