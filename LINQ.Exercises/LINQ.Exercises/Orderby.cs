@@ -33,10 +33,10 @@ namespace LINQ.Exercises
             Assert.IsTrue(result.SequenceEqual(new string[] { "apple", "blueberry", "cherry" }));
         }
 
+        // starting from a to z - order ascending
         [TestMethod]
         public void OrderWordsAlphabetically_Return5Words()
-        {
-            // starting from a to z - order ascending
+        {            
             IEnumerable<string> result = TestData.OrderByWordsExtended;
             Assert.IsTrue(result.SequenceEqual(new string[] { "apple", "blueberry", "cherry", "tamarind", "zuchini" }));
         }
@@ -49,20 +49,19 @@ namespace LINQ.Exercises
             Assert.IsTrue(result.SequenceEqual(new string[] { "tamarind", "cherry", "blueberry", "apple", "zuchini" }));
         }
 
+        // remember has to be descending:
         [TestMethod]
         public void OrderWordsByFirstLetterDescendingAlphabetically_Return5Words()
-        {
-            // remember has to be descending:
+        {            
             IEnumerable<string> result = TestData.OrderByWordsExtended;
 
             Assert.IsTrue(result.SequenceEqual(new string[] { "zuchini", "tamarind", "cherry", "blueberry", "apple", }));
         }
 
+        // order by the length (i.e. number of characters in each word):
         [TestMethod]
         public void OrderWordsByByLength_Return3Words()
         {
-            // order by the length (i.e. number of characters in each word):
-
             IEnumerable<string> result = TestData.OrderByWords;
 
             Assert.IsTrue(result.SequenceEqual(new string[] { "apple", "cherry", "blueberry" }));
@@ -82,18 +81,17 @@ namespace LINQ.Exercises
             }));
         }
 
+        // hint: https://msdn.microsoft.com/en-us/library/bb549422(v=vs.110).aspx
+        // you need to create a class that implements the IComparer interface
+        // Strictly speaking, the MSDN documentation suggests that you should
+        // not inherit from IComparer, but your class should inherit from
+        // the Comparer<T> class. But for the purposes of this exercise
+        // inheriting from IComparer will do just fine.
         [TestMethod]
         public void OrderAlphabeticallyAssumingCaseInsensitivity_ReturnCaseInsensitiveEnumeration()
         {
             string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
-
-            // hint: https://msdn.microsoft.com/en-us/library/bb549422(v=vs.110).aspx
-            // you need to create a class that implements the IComparer interface
-            // Strictly speaking, the MSDN documentation suggests that you should
-            // not inherit from IComparer, but your class should inherit from
-            // the Comparer<T> class. But for the purposes of this exercise
-            // inheriting from IComparer will do just fine.
-
+            
             var result = words;
 
             Assert.IsTrue(result.SequenceEqual(new string[] {
@@ -101,23 +99,23 @@ namespace LINQ.Exercises
             }));
         }
 
+        // The comparison can be more complex.
+        // Let us compare two strings by a function of their lengths.
+        // let us call this function the calculated_length of the string.
+        // if the length is an odd number: then the calculated_length of the string
+        // is the actual length of the string. but if the length of the string is an
+        // even number, then the calculated_length of the string is twice the actual string's length.
+
+        // let's order an array of strings: {"toy", "by"}
+        // e.g. "toy" is of length 3 - which is odd - so the calculated length = 3
+        // e.g. "by" is of length 2 - which is even - so the calculated length is 2.
+        // we need to order by calculated_length
+        // so the enumeration, assuming ascending order by calculated_length
+        // should be "by" and then "toy"
+
         [TestMethod]
         public void OrderAssumingSpecialCondition_ReturnSpecialEnumeration()
-        {
-            // The comparison can be more complex.
-            // Let us compare two strings by a function of their lengths.
-            // let us call this function the calculated_length of the string.
-            // if the length is an odd number: then the calculated_length of the string
-            // is the actual length of the string. but if the length of the string is an
-            // even number, then the calculated_length of the string is twice the actual string's length.
-
-            // let's order an array of strings: {"toy", "by"}
-            // e.g. "toy" is of length 3 - which is odd - so the calculated length = 3
-            // e.g. "by" is of length 2 - which is even - so the calculated length is 2.
-            // we need to order by calculated_length
-            // so the enumeration, assuming ascending order by calculated_length
-            // should be "by" and then "toy"
-
+        {           
             IEnumerable<string> result = TestData.OrderByWordsExtended;
 
             Assert.IsTrue(result.SequenceEqual(new string[] { "apple", "zuchini", "blueberry", "cherry", "tamarind" }));
@@ -168,17 +166,15 @@ namespace LINQ.Exercises
             Assert.IsTrue(result.SequenceEqual(new string[] { "one", "six", "two", "five", "four", "nine", "zero", "eight", "seven", "three" }));
         }
 
+        // order by increasing length
+        // then by alphabetically from a to z, ignoring case
         [TestMethod]
         public void OrderByLengthThenAlphabeticallyIgnoringCase_returnStringEnumeration()
         {
             #region hint
-
             // you will have to create a class which implements the IComparer<string> interface
-
             #endregion hint
-
-            // order by increasing length
-            // then by alphabetically from a to z, ignoring case
+            
             string[] words = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
 
             IEnumerable<string> result = words;
@@ -186,12 +182,11 @@ namespace LINQ.Exercises
             Assert.IsTrue(result.SequenceEqual(new string[] { "aPPLE", "AbAcUs", "bRaNcH", "cHeRry", "ClOvEr", "BlUeBeRrY" }));
         }
 
+        // use Reverse to create a list of all digits in the array whose
+        // second letter is 'i' that is reversed from the order in the original array.
         [TestMethod]
         public void ComplexQuery_returnStringEnumeration()
-        {
-            // use Reverse to create a list of all digits in the array whose
-            // second letter is 'i' that is reversed from the order in the original array.
-
+        {           
             string[] digits = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
             IEnumerable<string> result = digits;
