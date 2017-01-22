@@ -1,0 +1,14 @@
+﻿public void GetDistinctNumbers_ReturnIEnumerable()
+	IEnumerable<int> result = randomNumbers.Distinct();
+
+public void GetUniqueNumbersFromTwoArraysInAscendingOrder_ReturnEnumerable()
+	IEnumerable<int> result = numbersA.Union(numbersB);
+
+public void GetCommonValuesSharedByBothArrays_ReturnEnumerable()
+	IEnumerable<int> result = numbersA.Intersect(numbersB);
+
+public void GetNumbersInFirstArrayThatAreNotAlsoInSecondArray_ReturnIenumerableInt()
+	IEnumerable<int> result = numbersA.Except(numbersB); 
+
+public void GetStringsInFirstArrayThatAreNotAlsoInSecondArray_ReturnIenumerableString()
+	IEnumerable<string> result = lettersA.Except(lettersB);

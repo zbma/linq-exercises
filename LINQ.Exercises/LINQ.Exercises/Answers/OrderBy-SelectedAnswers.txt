@@ -1,0 +1,68 @@
+﻿public void OrderAssumingSpecialCondition_ReturnSpecialEnumeration(){
+	// The comparison can be more complex.
+	// Let us compare two strings by a function of their lengths.            
+	// let us call this function the calculated_length of the string.
+	// if the length is an odd number: then the calculated_length of the string
+	// is the actual length of the string. but if the length of the string is an 
+	// even number, then the calculated_length of the string is twice the actual string's length.
+
+	// let's order an array of strings: {"toy", "by"}
+	// e.g. "toy" is of length 3 - which is odd - so the calculated length = 3
+	// e.g. "by" is of length 2 - which is even - so the calculated length is 2.
+	// we need to order by calculated_length
+	// so the enumeration, assuming ascending order by calculated_length
+	// should be "by" and then "toy"
+
+	// This is my attempt at the answer. The classes are as below.
+	IEnumerable<string> result = TestData.OrderByWords1.OrderBy(x => x, new CalculatedLengthComparer());
+
+        class CalculatedLengthComparer : IComparer<string>
+        {
+
+            public int Compare(string x, string y)
+            {
+                int calculated_length_x = CalculatedLength(x);
+                int calculated_length_y = CalculatedLength(y);
+
+                if (calculated_length_x > calculated_length_y)
+                {
+                    return 1;
+                }
+                else if (calculated_length_x < calculated_length_y)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+
+            public static int CalculatedLength(string word)
+            {
+                int string_length = word.Length;
+
+                if (string_length %2 == 0)
+                {
+                    return 2 * string_length;
+                }
+                else
+                {
+                    return string_length;
+                }
+            }
+        }
+
+		
+public void OrderByLengthThenAlphabeticallyIgnoringCase_returnStringEnumeration()
+            IEnumerable<string> result = words.OrderBy(x => x.Length).ThenBy(x => x, new StringComparer());
+
+		// The string comparer class is as below
+         public class StringComparer : IComparer<string>
+        {
+
+            public int Compare(string x, string y)
+            {
+                return string.Compare(x, y, StringComparison.OrdinalIgnoreCase);
+            }
+        }

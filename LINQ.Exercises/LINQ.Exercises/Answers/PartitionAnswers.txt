@@ -1,0 +1,24 @@
+﻿﻿// It is strongly recommended that the student make a good bona fide attempt before		
+// looking up the answers. The learning process occurs when cognitive effort is expended.		
+
+The answers are written below the pertinent test names:		
+
+public void GetFirstTwoNumbers_returns_2_ints()		
+	IEnumerable<int> result = TestData.PartioningNumbers.Take(2);		
+ 	
+public void IgnoreFirstFourNumbers_returns_4_ints()		
+	IEnumerable<int> result = TestData.PartioningNumbers.Skip(4);		
+ 	
+public void Enumerate_Till_You_Get_A_Number_NotLessThanSix_returns_4_ints()   		
+	IEnumerable<int> result = TestData.PartioningNumbers.TakeWhile(n => n < 6);		
+	
+public void Enumerate_Till_A_Number_Hit_Which_is_less_than_its_own_array_position_returns_2_ints()        		
+	IEnumerable<int> result = TestData.PartioningNumbers.TakeWhile((n, indexNo) => !(n < indexNo)); 		
+	// OR		
+	var result = numbers.TakeWhile((n, index) => n >= index); 		
+ 	
+public void GetElementsOfArrayStartingFromTheFirstElementDivisibleByThree_Return7ints()		
+	IEnumerable<int> result = TestData.PartioningNumbers.SkipWhile((n) => (n % 3 != 0));		
+	
+public void GetElementsStartingFromFirstElementLessThanItsPosition_Return8ints()		
+	IEnumerable<int> result = TestData.PartioningNumbers.SkipWhile( (n, index) => n >= index) ;

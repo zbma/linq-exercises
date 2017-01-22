@@ -1,0 +1,15 @@
+﻿public void GetCharactersCommonToEveryonesFirstNamesUsingSetElements_ReturnCharEnumerable()
+	List<char[]> result = TestData.People.Select(name => name.FirstName.ToCharArray()).ToList();
+
+             List<char> commonCharacters = new List<char>();
+
+             for (int i = 0; i < result.Count -1; i++)
+             {
+                 char[] intersectionResult =  result[i].Intersect(result[i + 1]).ToArray();
+                 commonCharacters = commonCharacters.Union(intersectionResult).ToList();
+             }
+
+public void GetCharactersCommonToEveryonesFirstNamesNotUsingSetOperations_ReturnCharEnumerable()
+	// Not allowed to use set operations
+	IEnumerable<char> result = TestData.People.Select(x => x.FirstName.ToCharArray().Distinct()).SelectMany(x => x).GroupBy(x => x).Where(g => g.Count() > 1)
+                             .Select(g => g.Key);

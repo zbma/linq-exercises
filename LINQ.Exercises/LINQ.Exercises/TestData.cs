@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace LINQ.Exercises
@@ -85,12 +85,31 @@ namespace LINQ.Exercises
             }
         }
 
+        /// <summary>
+        /// The following Data was using for the partioning Tests
+        /// </summary>
+        ///
         internal static IEnumerable<int> PartitionNumbers
         {
             get
             {
                 return new int[] { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
             }
+        }
+
+        /// <summary>
+        /// The following Data was using for the Orderby Tests
+        /// </summary>
+        ///
+
+        internal static IEnumerable<string> OrderByWords
+        {
+            get { return new string[] { "cherry", "apple", "blueberry" }; }
+        }
+
+        internal static IEnumerable<string> OrderByWordsExtended
+        {
+            get { return new string[] { "cherry", "apple", "blueberry", "tamarind", "zuchini" }; }
         }
     }
 }
