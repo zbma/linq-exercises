@@ -108,7 +108,7 @@ namespace LINQ.Exercises
 
         // let's order an array of strings: {"toy", "by"}
         // e.g. "toy" is of length 3 - which is odd - so the calculated length = 3
-        // e.g. "by" is of length 2 - which is even - so the calculated length is 2.
+        // e.g. "by" is of length 2 - which is even - so the calculated length is 4.
         // we need to order by calculated_length
         // so the enumeration, assuming ascending order by calculated_length
         // should be "by" and then "toy"
