@@ -51,7 +51,7 @@ namespace LINQ.Exercises
         {
             IEnumerable<int> result = TestData.Numbers;
 
-            Assert.IsTrue(new[] { 1, 1, 2, 3, 5 }.SequenceEqual(result));
+            Assert.IsTrue(new[] { 1, 1, 3, 5 }.SequenceEqual(result));
         }
 
         [TestMethod]
