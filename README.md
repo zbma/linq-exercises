@@ -5,6 +5,8 @@ This project is aimed at c#/linq beginners, though you can use those drills to p
 
 I hope'll enjoy it and that you'll find this project as valuable learning resource.
 
+You can read more about it here [Learn/Teach LINQ using TDD/TDL](https://softdevpractice.com/blog/learn-teach-linq-using-tdd-tdl/)
+
 Have fun :)
 
 # How to use
